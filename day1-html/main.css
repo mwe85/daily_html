@@ -1,0 +1,29 @@
+html body {
+	font-family: 'Nunito', sans-serif;
+	
+}
+
+html.nightmode body{
+	background-color: black;
+	color: white;
+}
+
+html.daymode body{
+	background-color: white;
+	color: black;
+}
+
+h1{
+	font-family: 'Nunito', sans-serif;
+	font-weight: 600;
+	font-size: 64px;
+	
+}
+
+.spacedOut{
+	letter-spacing: 0.5ch;
+}
+
+.aboutContent p{
+	font-size: 32px;
+}

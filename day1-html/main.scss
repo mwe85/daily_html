@@ -1,0 +1,31 @@
+/*https://beautifytools.com/scss-compiler.php*/
+
+%font_nunito{
+    font-family: 'Nunito', sans-serif;
+}
+
+%regular_base_weight{
+    font-size: inherit;
+    font-weight: 400;
+}
+
+%weight_regular{
+    font-weight: 400;
+}
+
+%weight_semibold{
+    font-weight: 600;
+}
+
+%weight_bold{
+    font-weight: 700;
+}
+
+
+
+html{
+    body{
+        @extend %font_nunito;
+    }
+}
+
