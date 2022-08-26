@@ -1,0 +1,15 @@
+.ol-demo{
+
+}
+
+.ol-demo li{
+    padding: 10px;
+}
+
+li.felm{
+    background-color: blanchedalmond;
+}
+
+li.selm{
+    background-color: aquamarine;
+}
