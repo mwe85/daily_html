@@ -34,6 +34,10 @@ window.addEventListener("DOMContentLoaded", ()=>{
             let second_ol_demo = collection.namedItem("second-demo");
             assert(second_ol_demo !== void 0, "second element isnt found");
 
+
+            //emptying the children in the second ol demo list
+            second_ol_demo.replaceChildren();
+
             //check for sanity against for a named item that doesnt exist in the collection.
             assert(collection.namedItem("second-demotypo") == null, "namedItem exists but shouldnt")
             
@@ -60,12 +64,22 @@ window.addEventListener("DOMContentLoaded", ()=>{
                     let cl = cloned_node.classList;
                     cl.toggle("felm");
                     cl.toggle("selm");
-                    second_ol_demo.appendChild(cloned_node);
 
-                    /*cloned_node.addEventListen("click", (e)=>{
+                    /*cloned_node.addEventListener("click", (e)=>{
                         alert(`ol>li#${i}`);
                     });*/
+
+                    second_ol_demo.appendChild(cloned_node);
+
+                   
                 }
+
+                let list_builder = new ReorderableListBuilder(
+                    second_ol_demo
+                );
+
+                const list = list_builder.build();
+
             }
 
 
@@ -76,4 +90,6 @@ window.addEventListener("DOMContentLoaded", ()=>{
     }else{
         debug && alert(`not a HTMLCollection`);
     }
-})
+});
+
+
