@@ -1,0 +1,22 @@
+{
+    "pages":[
+        {
+            "order": 0,
+            "dir": "./day1-html",
+            "main": "main_sap.html"
+        },
+
+        {
+            "order": 1,
+            "dir": "./day1-html",
+            "main": "day2.html"
+        },
+
+        {
+            "order": 2,
+            "dir": "./day1-html",
+            "main": "main_sap.html"
+        }
+
+    ]
+}
