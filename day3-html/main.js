@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         alert(`list elm ${listElement}`) //> HTMLCollection
         
 
-        assert(listElement === void 0 && listElement === null, "list element")
+        assert(listElement === void 0 || listElement === null, "list element")
 
         const linkElement = (listElement === void 0) ? listElement.getElementsByTagName("A") : void 0;
         alert(`${linkElement}`)
