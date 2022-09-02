@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS custom properties demo</title>
+    <link rel="stylesheet" href="plain-css.css">
+</head>
+<body>
+    <main>
+        <section class="theme-a">
+            <div>
+                <div class="square_a">&nbsp;</div>
+                <div class="square_b">&nbsp;</div>
+            </div>
+            <div>
+                <button class="btn-update">Swap</button>
+            </div>
+        </section>
+    </main>
+    <script>
+        const firstElement = (htmlCollection) => {
+            (htmlCollection !== null || htmlCollection !== void 0) &&
+            (htmlCollection.lenght > 0) ?
+                htmlCollection.item(0) : void 0;   
+        };
+        
+        document.addEventListener("DOMContentLoaded", (e)=>{
+            const elmThemeContainer = firstElement(document.getElementsByClassName("theme-container"));
+            const btnSwap = document.getElementsByClassName("btn-update");
+            const fnThemeSwapper = () =>{
+                
+            };
+
+            btnSwap.addEventListener("click", (e) =>{
+                elmThemeContainer !== void 0 && fnThemeSwapper();
+                e.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
