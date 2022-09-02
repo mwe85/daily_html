@@ -1,0 +1,39 @@
+:root {
+    /*variables here are like those declared within the global scope*/
+    --square-height: 16rem;
+    --square-width: var(--square-height);
+    --square-margin: 1rem;
+
+    /*default value for the square's respective color*/
+    --square-bg-color-a: rgb(49, 189, 37);
+    --square-bg-color-b: rgb(104, 35, 35);
+}
+
+.btn-update{
+
+}
+
+.theme-a{
+    --square-bg-color-a: rgb(28, 50, 95);
+    --square-bg-color-b: rgb(7, 83, 71);
+}
+
+.theme-b{
+    /*let the previous values be cascaded into this 'scope'*/
+}
+
+.square-a{
+    width: var(--square-height);
+    height: var(--square-width);
+    margin-right: var(--square-margin);
+    
+    background-color: var(--square-bg-color-a);
+}
+
+.square-b{
+    width: var(--square-height);
+    height: var(--square-width);
+    margin-right: var(--square-margin); 
+
+    background-color: var(--square-bg-color-b);
+}
