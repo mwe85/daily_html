@@ -25,7 +25,9 @@
 .square-a{
     width: var(--square-height);
     height: var(--square-width);
+    
     margin-right: var(--square-margin);
+    margin-bottom: var(--square-margin);
     
     background-color: var(--square-bg-color-a);
 }
@@ -33,7 +35,9 @@
 .square-b{
     width: var(--square-height);
     height: var(--square-width);
+
     margin-right: var(--square-margin); 
+    margin-bottom: var(--square-margin);
 
     background-color: var(--square-bg-color-b);
 }
