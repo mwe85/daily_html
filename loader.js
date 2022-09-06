@@ -39,7 +39,8 @@ class PageData{
 }
 
 class FetchRequestor{
-    requestor(url){
+    request(url){
+        alert("fetch")
         return new Promise((ok, err) =>{
             fetch(url).then(
                 (response) =>{
@@ -65,8 +66,9 @@ class FetchRequestor{
 class LegacyRequestor{
 
     request(url){
+        alert("legacy")
         let req = new XMLHttpRequest();
-
+        
         return new Promise((ok, error)=>{
             req.onload = function(){
                 //note: onload is invoked with supplying 
@@ -82,7 +84,8 @@ class LegacyRequestor{
 
 class Requestor{
     constructor(){
-        this.requestor = lazyResolve(); //its cheaper to do it here than in request
+        alert("hi 2")
+        this.requestor = this.lazyResolve(); //its cheaper to do it here than in request
     }
 
     lazyResolve(){
@@ -95,27 +98,40 @@ class Requestor{
         //to XMLHttpRequest.
 
         //detection
-        if(window.fetch === undefined){
+        alert("hi 3")
+        if(window.fetch === void 0){
             //resolve to legacy
-           return new LegacyRequestor()
+            alert("legacy")
+            return new LegacyRequestor();
         }else{
+            alert("fetch")
             return new FetchRequestor();
         }
    }
 
     request(url){
+        alert("hi")
         this.requestor.request(url);
     }
 
 
 }
 
+class ErrorElement{
+    update(){
+
+    }   
+} 
+
 //singleton function
 let gRequestorInstance = null;
 
 function fetcher(url){
+    
     if(gRequestorInstance == null){
+        
         gRequestorInstance = new Requestor();
+        
     }
 
     return gRequestorInstance.request(url); 
@@ -123,11 +139,20 @@ function fetcher(url){
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
+    alert("hi")
     const request = fetcher("https://mwe85.github.io/daily_html/pages.json");
-
+    
     request.then((response) =>{
-
+        if(response.hasOwnProperty("pages")){
+            const pages = response.pages;
+            if(pages.constructor === Array){
+                alert(`pages len: ${pages.length}`);
+            }else{
+                //not an array object
+                alert(`pages isnt an array:${pages}`);
+            }
+        }
     }).catch((error)=>{
-
+        alert(`error ${error}`);
     });
 });
