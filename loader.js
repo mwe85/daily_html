@@ -124,4 +124,10 @@ function fetcher(url){
 
 document.addEventListener("DOMContentLoaded", (event) => {
     const request = fetcher("https://mwe85.github.io/daily_html/pages.json");
+
+    request.then((response) =>{
+
+    }).catch((error)=>{
+
+    });
 });
