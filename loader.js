@@ -1,3 +1,7 @@
+/**
+ *  fetch api supports 
+ *  */
+
 class PageDataCollection{
 
     sortOrder(){
@@ -119,10 +123,5 @@ function fetcher(url){
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    const data = fetcher("https://mwe85.github.io/daily_html/pages.json");
-
-    //data should be a list
-    if(false){
-        //
-    }
+    const request = fetcher("https://mwe85.github.io/daily_html/pages.json");
 });
