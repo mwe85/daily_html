@@ -79,11 +79,14 @@ class LegacyRequestor{
             req.onload = function(){
                 //note: onload is invoked with supplying 
                 //an object via this. 
-
+                alert("legacy response ok");
                 return JSON.parse(this.responseText);
             };
 
-            req.onerror = (err) => error(err);
+            req.onerror = (err) => {
+                alert("legacy response err");
+                error(err)
+            };
         });
     }
 }
