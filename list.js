@@ -40,5 +40,15 @@ class PageData{
 
 
 class PrototypeBuilder{
-    constructor(data. )
+    constructor(data,  container_id, item_id){
+
+    }
+
+    retriveListTemplate(id){
+
+    }
+
+    retriveItemTemplate(id){
+
+    }
 }
