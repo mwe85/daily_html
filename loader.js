@@ -1,48 +1,13 @@
 const gURL = "https://mwe85.github.io/daily_html/pages.json";
 
-class PageDataCollection{
-
-    sortOrder(){
-
-    }
-
-    createDOMTree(){
-
-    }
-}
-
-class PageData{
-    constructor(jsonObj){
-        this.index = jsonObj.main;
-        this.dir = jsonObj.dir;
-        this.order = jsonObj.order;
-    }
-
-    
-    get index(){
-        //lazily resolve to default
-        if(this.index === ""){
-            this.index = "index.html";
-            return this.index;
-        }
-    }
-
-    get dir(){
-        return this.dir;
-    }
-
-    get order(){
-        return this.order;
-    }
-}
 
 class FetchRequestor{
     request(url){
         const promise = new Promise((ok, err) =>{
-            alert("fetch request..")
+            false && alert("fetch request..")
             fetch(url).then(
                 (response) =>{
-                    alert("fetch reponse")
+                    false && alert("fetch reponse")
                     //handle responses with HTTP status codes not 200 as an error
                     if(response.status !== 200){
                         alert("fetch reponse status error: " + response.status)
@@ -50,7 +15,7 @@ class FetchRequestor{
                     }
                     
                     response.json().then((data)=>{
-                        alert("fetch response ok")
+                        false && alert("fetch response ok")
                         ok(data);
                     });
 
@@ -64,7 +29,7 @@ class FetchRequestor{
             );
         });
 
-        alert(`returning promsie from fetch ${promise}`)
+        false && alert(`returning promsie from fetch ${promise}`)
         return promise;
     }
 }
@@ -95,7 +60,7 @@ class LegacyRequestor{
 
 class Requestor{
     constructor(){
-        alert("hi 2")
+        false && alert("hi 2")
         this.requestor = this.lazyResolve(); //its cheaper to do it here than in request
     }
 
@@ -121,7 +86,7 @@ class Requestor{
    }
 
     request(url){
-        alert("hi")
+        false && alert("hi")
         this.requestor.request(url);
     }
 

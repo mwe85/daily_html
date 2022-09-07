@@ -8,8 +8,10 @@
     <script src="loader.js"></script>
     <script src="list.js"></script>
     <script>
+        const g_container_id = "list-container-template";
+        const g_item_id = "list-item-template"; 
         document.addEventListener("DOMContentLoaded", (event) => {
-            alert("hi a")
+           debug("hi")
 
             /*
                 const request = fetcher("https://mwe85.github.io/daily_html/pages.json");
@@ -26,6 +28,10 @@
                         const pages = response.pages;
                         if(pages.constructor === Array){
                             alert(`pages len: ${pages.length}`);
+
+                            //build the list
+                            const pb = new PrototypeBuilder(pages, g_container_id, g_item_id);
+
                         }else{
                             //not an array object
                             alert(`pages isnt an array:${pages}`);
@@ -43,6 +49,7 @@
     </script>
 </head>
 <body>
+    <div id="debug"></div>
     <main>
         <section>
             a collection of html/css/js demos
@@ -54,12 +61,12 @@
         </section>
     </main>
 </body>
-<template id="container">
+<template id="list-container-template">
     <ol class="list-container">
 
     </ol>
 </template>
-<template id="list-item">
+<template id="list-item-template">
     <li>
         <a href=""></a>
     </li>
