@@ -1,6 +1,4 @@
-/**
- *  fetch api supports 
- *  */
+const gURL = "https://mwe85.github.io/daily_html/pages.json";
 
 class PageDataCollection{
 
@@ -155,7 +153,10 @@ function fetcher(url){
 
 document.addEventListener("DOMContentLoaded", (event) => {
     alert("hi a")
-    const request = fetcher("https://mwe85.github.io/daily_html/pages.json");
+
+    
+    const request = (new FetchRequestor).request(gURL)
+    
     alert(`type of request: ${request}`)
 
     if(request){
