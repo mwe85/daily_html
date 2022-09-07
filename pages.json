@@ -8,14 +8,20 @@
 
         {
             "order": 1,
-            "dir": "./day1-html",
+            "dir": "./day2-html",
             "main": "day2.html"
         },
 
         {
             "order": 2,
-            "dir": "./day1-html",
-            "main": "main_sap.html"
+            "dir": "./day3-html",
+            "main": ""
+        },
+
+        {
+            "order": 3,
+            "dir": "./day4-html",
+            "main": ""
         }
 
     ]
