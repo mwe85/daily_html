@@ -4,7 +4,7 @@ function init_debug(){
     return;
 }
 
-function debug(data, append = false){
+function debug(data, append = true){
     if(!elmDebuggerOutput){
         init_debug();
     }
@@ -74,8 +74,9 @@ class PrototypeBuilder{
 
     retriveListTemplate(id){
         const template_container = document.getElementById(id);
-        alert(`template_container: ${template_container}`)
-        debug(`template html ${template_container.content.innerHTML}`, true) //content type is DocumentFragment
+        false && alert(`template_container: ${template_container}`)
+        const clone = template_container.content.cloneNode(true);
+        debug(`template html ${clone.innerHTML}`, true) //content type is DocumentFragment
         if(template_container){
             alert("pb")
             const listElement = template_container.querySelector(".list-container");

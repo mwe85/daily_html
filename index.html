@@ -19,15 +19,15 @@
             */
             const request = (new FetchRequestor()).request(gURL);
             
-            alert(`type of request: ${request}`)
+            debug(`type of request: ${request}`)
 
             if(request){
                 request.then((response) =>{
-                    alert("handling response")
+                    debug("handling response")
                     if(response.hasOwnProperty("pages")){
                         const pages = response.pages;
                         if(pages.constructor === Array){
-                            alert(`pages len: ${pages.length}`);
+                            debug(`pages len: ${pages.length}`);
 
                             //build the list
                             const pb = new PrototypeBuilder(pages, g_container_id, g_item_id);
@@ -41,10 +41,10 @@
                     alert(`error ${error}`);
                 });
             }else{
-                alert("promise is null")
+                debug("promise is null")
             }
 
-            alert("done")
+            debug("done")
         });
     </script>
 </head>

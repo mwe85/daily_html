@@ -80,7 +80,7 @@ class Requestor{
             alert("legacy")
             return new LegacyRequestor();
         }else{
-            alert("fetch")
+            debug("fetch api", true);
             return new FetchRequestor();
         }
    }
@@ -111,7 +111,7 @@ function fetcher(url){
     }
 
     const req = gRequestorInstance.request(url); 
-    alert(`req: ${req}, requestor type: ${gRequestorInstance}`);
+    debug(`req: ${req}, requestor type: ${gRequestorInstance}`, true);
     return req;
 }
 
