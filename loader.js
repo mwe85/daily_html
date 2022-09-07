@@ -151,35 +151,3 @@ function fetcher(url){
 }
 
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    alert("hi a")
-
-    /*
-        const request = fetcher("https://mwe85.github.io/daily_html/pages.json");
-        weird bug, it wont return the promise.
-    */
-    const request = (new FetchRequestor()).request(gURL);
-    
-    alert(`type of request: ${request}`)
-
-    if(request){
-        request.then((response) =>{
-            alert("handling response")
-            if(response.hasOwnProperty("pages")){
-                const pages = response.pages;
-                if(pages.constructor === Array){
-                    alert(`pages len: ${pages.length}`);
-                }else{
-                    //not an array object
-                    alert(`pages isnt an array:${pages}`);
-                }
-            }
-        }).catch((error)=>{
-            alert(`error ${error}`);
-        });
-    }else{
-        alert("promise is null")
-    }
-
-    alert("done")
-});
