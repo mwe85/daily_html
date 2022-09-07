@@ -40,22 +40,28 @@ class PageData{
 
 class FetchRequestor{
     request(url){
-        alert("fetch")
+        
         return new Promise((ok, err) =>{
+            alert("fetch request..")
             fetch(url).then(
                 (response) =>{
+                    alert("fetch reponse")
                     //handle responses with HTTP status codes not 200 as an error
                     if(response.status !== 200){
+                        alert("fetch reponse status error: " + response.status)
                         return err({status: response.status});
                     }
                     
                     response.json().then((data)=>{
+                        alert("fetch response ok")
                         ok(data);
                     });
+
                     
                 },
     
                 (error) =>{
+                    alert("fetch err")
                     return err({error: error});
                 }
             );
