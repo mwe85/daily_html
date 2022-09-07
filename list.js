@@ -10,7 +10,7 @@ function debug(data, append = false){
     }
 
     if(append){
-        elmDebuggerOutput.innerHTML = elmDebuggerOutput.innerHTML +"\n\r"+ data;
+        elmDebuggerOutput.innerHTML = elmDebuggerOutput.innerHTML +"\r\n"+ data;
     }else{
         elmDebuggerOutput.innerHTML = data;
     }
@@ -63,10 +63,12 @@ class PrototypeBuilder{
         
 
         if(this.template_support){
+            debug("templates are supported", true);
             const listTemplate = this.retriveListTemplate(container_id);
             const itemTemplate = this.retriveItemTemplate(item_id);
         }else{
             //revert to leagacy. 
+            debug("templates arent supported", true);
         }
     }
 
