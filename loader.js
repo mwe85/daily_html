@@ -40,8 +40,7 @@ class PageData{
 
 class FetchRequestor{
     request(url){
-        
-        return new Promise((ok, err) =>{
+        const promise = new Promise((ok, err) =>{
             alert("fetch request..")
             fetch(url).then(
                 (response) =>{
@@ -65,7 +64,10 @@ class FetchRequestor{
                     return err({error: error});
                 }
             );
-        })
+        });
+
+        alert(`returning promsie from fetch ${promise}`)
+        return promise;
     }
 }
 
@@ -80,7 +82,9 @@ class LegacyRequestor{
                 //note: onload is invoked with supplying 
                 //an object via this. 
                 alert("legacy response ok");
-                return JSON.parse(this.responseText);
+                const data = JSON.parse(this.responseText);
+                ok(data);
+                return data;
             };
 
             req.onerror = (err) => {
@@ -143,25 +147,35 @@ function fetcher(url){
         
     }
 
-    return gRequestorInstance.request(url); 
+    const req = gRequestorInstance.request(url); 
+    alert(`req: ${req}, requestor type: ${gRequestorInstance}`);
+    return req;
 }
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    alert("hi")
+    alert("hi a")
     const request = fetcher("https://mwe85.github.io/daily_html/pages.json");
-    
-    request.then((response) =>{
-        if(response.hasOwnProperty("pages")){
-            const pages = response.pages;
-            if(pages.constructor === Array){
-                alert(`pages len: ${pages.length}`);
-            }else{
-                //not an array object
-                alert(`pages isnt an array:${pages}`);
+    alert(`type of request: ${request}`)
+
+    if(request){
+        request.then((response) =>{
+            alert("handling response")
+            if(response.hasOwnProperty("pages")){
+                const pages = response.pages;
+                if(pages.constructor === Array){
+                    alert(`pages len: ${pages.length}`);
+                }else{
+                    //not an array object
+                    alert(`pages isnt an array:${pages}`);
+                }
             }
-        }
-    }).catch((error)=>{
-        alert(`error ${error}`);
-    });
+        }).catch((error)=>{
+            alert(`error ${error}`);
+        });
+    }else{
+        alert("promise is null")
+    }
+
+    alert("done")
 });
