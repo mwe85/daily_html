@@ -154,8 +154,11 @@ function fetcher(url){
 document.addEventListener("DOMContentLoaded", (event) => {
     alert("hi a")
 
-    
-    const request = (new FetchRequestor).request(gURL)
+    /*
+        const request = fetcher("https://mwe85.github.io/daily_html/pages.json");
+        weird bug, it wont return the promise.
+    */
+    const request = (new FetchRequestor()).request(gURL);
     
     alert(`type of request: ${request}`)
 
