@@ -10,6 +10,8 @@
     <script>
         const g_container_id = "list-container-template";
         const g_item_id = "list-item-template"; 
+        const g_list_item_query = ".list-item";
+        const g_list_container_query = ".list-container";
         document.addEventListener("DOMContentLoaded", (event) => {
            debug("hi")
 
@@ -30,7 +32,13 @@
                             debug(`pages len: ${pages.length}`);
 
                             //build the list
-                            const pb = new PrototypeBuilder(pages, g_container_id, g_item_id);
+                            const pb = new PrototypeBuilder(
+                                pages, 
+                                g_container_id, 
+                                g_item_id,
+                                g_list_container_query,
+                                g_list_item_query
+                            );
 
                         }else{
                             //not an array object
@@ -69,7 +77,7 @@
     </ol>
 </template>
 <template id="list-item-template">
-    <li>
+    <li class="list-item">
         <a href=""></a>
     </li>
 </template>
