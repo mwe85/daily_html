@@ -166,7 +166,7 @@ class PrototypeBuilder{
         debug(`inner link url ${item.firstElementChild}`); 
         debug(`inner link element ${item.firstElementChild.constructor}`); 
 
-        inner_link.inner
+        inner_link.textContent = "stuff";
         elm_container.appendChild(item);
     }
 
@@ -178,7 +178,7 @@ class PrototypeBuilder{
     wipListContainer(elm_container, page_data = null){
         let resultingElement = null;
         if(page_data){
-
+            
         }
     }
 }
