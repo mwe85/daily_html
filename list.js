@@ -74,11 +74,12 @@ class PrototypeBuilder{
             debug("templates are supported", true);
 
             this.list_template = this.retriveListTemplate(container_id, container_target);
-            debug(`list container: ${this.list_template}`);
+            debug(`list template: ${this.list_template}`);
 
 
-            debug("find item template...")
+            debug("find item template...") 
             this.item_template = this.retriveItemTemplate(item_id, item_target);
+            debug(`item template: ${this.item_template}`);
         }else{
             //revert to leagacy. 
             debug("templates arent supported", true);
@@ -131,15 +132,53 @@ class PrototypeBuilder{
         }
     }
 
-    prototypeBuilder(container){
+    /**
+     * 
+     * @param {String} container 
+     */
+    prototypeBuilder(container, page_data){
+        debug(`pbbuilder ${container}, ${page_data.toString()}`)
+        let containing_element = document.querySelector(container);
 
-    }
+        if(containing_element){
+            debug(`found app container element: ${containing_element}`)
+            this.wipListItem(containing_element);
+        }else{
+            debug('couldnt find `${container}`');
+        }
 
-    wipListItem(){
-
-    }
-
-    wipListContainer(){
         
+    }
+
+    /**
+     * 
+     * @param {HTMLElement} elm_container 
+     */
+    wipListItem(elm_container){
+        //invariants at this point: the templated element to duplicate is found.
+        debug(`this.item_template: ${ this.item_template}`)
+
+        
+        const item = this.item_template.cloneNode(true); //typeof HTMLLinkElement
+        const inner_link = item.firstElementChild;
+
+        //note its toString method defaults to printing out the url.
+        debug(`inner link url ${item.firstElementChild}`); 
+        debug(`inner link element ${item.firstElementChild.constructor}`); 
+
+        inner_link.inner
+        elm_container.appendChild(item);
+    }
+
+    /**
+     * 
+     * @param {HTMLElement} elm_container 
+     * @param {([PageData]|null)} page_data 
+     */
+    wipListContainer(elm_container, page_data = null){
+        let resultingElement = null;
+        if(page_data){
+
+        }
     }
 }
