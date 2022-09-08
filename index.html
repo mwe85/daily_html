@@ -12,6 +12,9 @@
         const g_item_id = "list-item-template"; 
         const g_list_item_query = ".list-item";
         const g_list_container_query = ".list-container";
+        const g_main_container_query = ".main";
+
+        
         document.addEventListener("DOMContentLoaded", (event) => {
            debug("hi")
 
@@ -40,6 +43,9 @@
                                 g_list_item_query
                             );
 
+                            
+                            pb.prototypeBuilder(g_main_container_query);
+
                         }else{
                             //not an array object
                             alert(`pages isnt an array:${pages}`);
@@ -60,16 +66,16 @@
     <div>
         <pre id="debug"></pre>
     </div>
-    <main>
+    <div>
         <section>
             a collection of html/css/js demos
             <a href="./day1-html/main_sap.html">day 1 project: a single page application that serves as a catalogue viewer of these demos</a><br>
             <a href="./day2-html/day2.html">day 2: manipulating the dom elements via JS</a>            
         </section>
-        <section class="projects">
+        <main class="main">
 
-        </section>
-    </main>
+        </main>
+    </div>
 </body>
 <template id="list-container-template">
     <ol class="list-container">

@@ -74,8 +74,9 @@ class PrototypeBuilder{
             debug("templates are supported", true);
 
             this.list_template = this.retriveListTemplate(container_id, container_target);
-            alert(1)
             debug(`list container: ${this.list_template}`);
+
+
             debug("find item template...")
             this.item_template = this.retriveItemTemplate(item_id, item_target);
         }else{
@@ -98,7 +99,7 @@ class PrototypeBuilder{
         debug(`clone typeof: ${template_clone}`)
         debug(`querying cloned node for ${innerTargetClass}: ${template_clone.querySelector(innerTargetClass)}`)
         if(template_container){
-            alert("pb")
+            debug("template container exists");
             //note  template_container.querySelector is a valid function, but wont
             //find anything.. to find something within a template contents, the
             //content object needs to be used to invoke querySelector
@@ -128,5 +129,17 @@ class PrototypeBuilder{
             debug(`template item returned null`)
             return null;
         }
+    }
+
+    prototypeBuilder(container){
+
+    }
+
+    wipListItem(){
+
+    }
+
+    wipListContainer(){
+        
     }
 }
