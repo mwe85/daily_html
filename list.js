@@ -33,26 +33,42 @@ class PageDataCollection{
 
 class PageData{
     constructor(jsonObj){
-        this.index = jsonObj.main;
-        this.dir = jsonObj.dir;
-        this.order = jsonObj.order;
+        this._index = jsonObj.main;
+        this._dir = jsonObj.dir;
+        this._order = jsonObj.order;
+        this._lazily_eval_trailing_slash = false;
     }
 
     
     get index(){
         //lazily resolve to default
-        if(this.index === ""){
-            this.index = "index.html";
-            return this.index;
+        if(this._index === ""){
+            this._index = "index.html";
+            return this._index;
         }
+        return this._index;
     }
 
     get dir(){
-        return this.dir;
+        if(!this._lazily_eval_trailing_slash){
+            const end = this._dir.length - 1;
+
+            if(this._dir.charAt(end) !== "/"){
+                this._dir = this._dir + "/";
+            }
+
+            this._lazily_eval_trailing_slash = true;
+        }
+        return this._dir;
+    }
+
+    get url(){
+
+        return this.dir + this.index
     }
 
     get order(){
-        return this.order;
+        return this._order;
     }
 }
 
@@ -132,9 +148,11 @@ class PrototypeBuilder{
         }
     }
 
+    
     /**
      * 
      * @param {String} container 
+     * @param {[Object]} page_data 
      */
     prototypeBuilder(container, page_data){
         debug(`pbbuilder ${container}, ${page_data.toString()}`)
@@ -142,7 +160,11 @@ class PrototypeBuilder{
 
         if(containing_element){
             debug(`found app container element: ${containing_element}`)
-            this.wipListItem(containing_element);
+
+            //redefine the containing element to be the list
+
+            this.wipListContainer(containing_element, page_data);
+            
         }else{
             debug('couldnt find `${container}`');
         }
@@ -153,8 +175,9 @@ class PrototypeBuilder{
     /**
      * 
      * @param {HTMLElement} elm_container 
+     * @param {PageData} pageData 
      */
-    wipListItem(elm_container){
+    wipListItem(elm_container, pageData){
         //invariants at this point: the templated element to duplicate is found.
         debug(`this.item_template: ${ this.item_template}`)
 
@@ -165,8 +188,15 @@ class PrototypeBuilder{
         //note its toString method defaults to printing out the url.
         debug(`inner link url ${item.firstElementChild}`); 
         debug(`inner link element ${item.firstElementChild.constructor}`); 
+        
+        if(pageData){
+            inner_link.href = pageData.url;
+            inner_link.textContent = pageData.index;
+        }else{
+            inner_link.href = "url"
+            inner_link.textContent = "stuff";
+        }
 
-        inner_link.textContent = "stuff";
         elm_container.appendChild(item);
     }
 
@@ -174,11 +204,36 @@ class PrototypeBuilder{
      * 
      * @param {HTMLElement} elm_container 
      * @param {([PageData]|null)} page_data 
+     * @returns {HTMLElement}
      */
     wipListContainer(elm_container, page_data = null){
-        let resultingElement = null;
-        if(page_data){
+        let resultingElement = this.list_template.cloneNode(true);
+        debug(`ok.. ${elm_container}`)
+
+        elm_container.appendChild(resultingElement);
+
+        const containing_element = resultingElement;
+
+        if(page_data.constructor === Array){
+            const collectionLen = page_data.length;
             
+
+            if(page_data.length > 0){
+                //build a PageData element
+                for(let i = 0; i < collectionLen; i++){
+                    let pgdata = null;
+                    pgdata = new PageData(page_data[i]);
+
+                    this.wipListItem(containing_element, pgdata);
+                }
+            }else{
+                debug("json collection of objects is empty");
+                this.wipListItem(containing_element, null);
+            }
+        }else{
+            this.wipListItem(containing_element, null);
         }
+
+        return resultingElement;
     }
 }
