@@ -30,6 +30,14 @@
             "main": "",
             "title": "",
             "tags": []
+        },
+
+        {           
+            "order": 4,
+            "dir": "./day4-html",
+            "main": "",
+            "title": "",
+            "tags": ["customElements", "js", "WebComponents", "detection"]
         }
 
     ]
