@@ -34,7 +34,7 @@
 
         {           
             "order": 4,
-            "dir": "./day5-html",
+            "dir": "./day4-html",
             "main": "",
             "title": "",
             "tags": ["customElements", "js", "WebComponents", "detection"]
