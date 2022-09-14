@@ -3,25 +3,29 @@
         {
             "order": 0,
             "dir": "./day1-html",
-            "main": "main_sap.html"
+            "main": "main_sap.html",
+            "title": ""
         },
 
         {
             "order": 1,
             "dir": "./day2-html",
-            "main": "day2.html"
+            "main": "day2.html",
+            "title": ""
         },
 
         {
             "order": 2,
             "dir": "./day3-html",
-            "main": ""
+            "main": "",
+            "title": ""
         },
 
         {
             "order": 3,
             "dir": "./day4-html",
-            "main": ""
+            "main": "",
+            "title": ""
         }
 
     ]
