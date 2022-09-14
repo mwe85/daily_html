@@ -4,28 +4,32 @@
             "order": 0,
             "dir": "./day1-html",
             "main": "main_sap.html",
-            "title": ""
+            "title": "",
+            "tags": ["typography"]
         },
 
         {
             "order": 1,
             "dir": "./day2-html",
             "main": "day2.html",
-            "title": ""
+            "title": "",
+            "tags": ["DOM", "js"]
         },
 
         {
             "order": 2,
             "dir": "./day3-html",
             "main": "",
-            "title": ""
+            "title": "",
+            "tags": []
         },
 
         {
             "order": 3,
             "dir": "./day4-html",
             "main": "",
-            "title": ""
+            "title": "",
+            "tags": []
         }
 
     ]
