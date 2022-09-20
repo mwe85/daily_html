@@ -34,10 +34,18 @@
 
         {           
             "order": 4,
-            "dir": "./day4-html",
+            "dir": "./day5-html",
             "main": "",
             "title": "",
             "tags": ["customElements", "js", "WebComponents", "detection"]
+        },
+
+        {           
+            "order": 5,
+            "dir": "./day6-html",
+            "main": "",
+            "title": "",
+            "tags": ["flexbox", "leagacy-centering", "css", "css3"]
         }
 
     ]
