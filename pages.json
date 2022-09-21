@@ -45,7 +45,7 @@
             "dir": "./day6-html",
             "main": "",
             "title": "",
-            "tags": ["flexbox", "leagacy-centering", "css", "css3"]
+            "tags": ["flexbox", "leagacy-centering", "css", "css3", "CSS custom properties"]
         }
 
     ]
