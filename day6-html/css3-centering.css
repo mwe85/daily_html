@@ -1,9 +1,30 @@
 body.mode-css3 div.parent-container{
-
+    position: relative;
+    background-color: rgba(27, 119, 32, 0.486);
 }
 
-body.mode-css3 div.main{
+body.mode-css3 article.main{
+    color: rgb(27, 119, 57);
+    position: absolute;
+    
+   
+    top: 50%;
+    left: 50%;
 
+    margin-right: -50%;
+    /**why:
+    The 'margin-right: -50%' is needed to compensate the 'left: 50%'.
+    The 'left' rule reduces the available width for the element by 50%.
+    The renderer will thus try to make lines that are no longer than
+    half the width of the container. By saying that the right margin
+    of the element is further to the right by that same amount, 
+    the maximum line length is again the same as the container's 
+    width. 
+
+    https://www.w3.org/Style/Examples/007/center.en.html
+    **/
+
+    transform: translate(-50%, -50%);
 }
 
 body.mode-css3 section.item{

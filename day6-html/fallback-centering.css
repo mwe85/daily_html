@@ -1,12 +1,24 @@
 .mode-legacy div.parent-container{
-
+    position: relative;
+    background-color: rgba(27, 119, 32, 0.486);
 }
 
-.mode-legacy div.main{
+.mode-legacy article.main{
+    /*2013 technique: 
+    https://www.smashingmagazine.com/2013/08/absolute-horizontal-vertical-centering-css/*/
+    color: rgb(27, 119, 57);
+    position: absolute;
+    
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
+    margin: auto; /*this does the centering via margin*/
 }
 
 .mode-legacy section.item{
+   
 
 }
 
