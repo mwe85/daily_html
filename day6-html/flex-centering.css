@@ -1,5 +1,8 @@
 body.mode-flex div.parent-container{
-
+    /*display mode flexbox*/
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 body.mode-flex article.main{
