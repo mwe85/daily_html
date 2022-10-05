@@ -34,6 +34,8 @@
 
     </style>
     <script>
+
+
         const g_container_id = "list-container-template";
         const g_item_id = "list-item-template"; 
         const g_list_item_query = ".list-item";
@@ -43,6 +45,12 @@
 
         document.addEventListener("DOMContentLoaded", (event) => {
            debug("hi")
+
+            if(!document.createDoucmentTransition){
+                debug("page transition api isnt supported")
+            }else{
+                debug("page transitions are supported")
+            }
 
             /*
                 const request = fetcher("https://mwe85.github.io/daily_html/pages.json");
