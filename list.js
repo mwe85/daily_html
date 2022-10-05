@@ -87,18 +87,18 @@ class PrototypeBuilder{
         
 
         if(this.template_support){
-            debug("templates are supported", true);
+            false && debug("templates are supported", true);
 
             this.list_template = this.retriveListTemplate(container_id, container_target);
-            debug(`list template: ${this.list_template}`);
+            false && debug(`list template: ${this.list_template}`);
 
 
-            debug("find item template...") 
+            false && debug("find item template...") 
             this.item_template = this.retriveItemTemplate(item_id, item_target);
-            debug(`item template: ${this.item_template}`);
+            false && debug(`item template: ${this.item_template}`);
         }else{
             //revert to leagacy. 
-            debug("templates arent supported", true);
+            false&& debug("templates arent supported", true);
         }
     }
 
@@ -111,17 +111,17 @@ class PrototypeBuilder{
         const template_container = document.getElementById(id);
         false && alert(`template_container: ${template_container}`)
         const template_clone = template_container.content.cloneNode(true);
-        debug(`template element ${template_container}`, true) //content type is DocumentFragment
-        debug(`template HTML  ${template_clone.children.item(0)}`)
-        debug(`clone typeof: ${template_clone}`)
-        debug(`querying cloned node for ${innerTargetClass}: ${template_clone.querySelector(innerTargetClass)}`)
+        false && debug(`template element ${template_container}`, true) //content type is DocumentFragment
+        false && debug(`template HTML  ${template_clone.children.item(0)}`)
+        false && debug(`clone typeof: ${template_clone}`)
+        false && debug(`querying cloned node for ${innerTargetClass}: ${template_clone.querySelector(innerTargetClass)}`)
         if(template_container){
-            debug("template container exists");
+            false && debug("template container exists");
             //note  template_container.querySelector is a valid function, but wont
             //find anything.. to find something within a template contents, the
             //content object needs to be used to invoke querySelector
             const listElement = template_container.content.querySelector(innerTargetClass);
-            debug(`listElement html ${listElement}, ${listElement.cloneNode(true)}`, true)
+            false && debug(`listElement html ${listElement}, ${listElement.cloneNode(true)}`, true)
             return listElement.cloneNode(true);
         }
         return null;
@@ -134,7 +134,7 @@ class PrototypeBuilder{
      * @returns {(HTMLLIElement|null)}
      */
     retriveItemTemplate(id, innerTargetClass){
-        debug(`retriving list item template at: ${id}`);
+        false && debug(`retriving list item template at: ${id}`);
         debug(`inner target: ${innerTargetClass}`)
         const template_list_item = document.getElementById(id);
         debug(`list item template ${template_list_item}`);
@@ -217,6 +217,7 @@ class PrototypeBuilder{
         if(page_data.constructor === Array){
             const collectionLen = page_data.length;
             
+            //margin-right: -50%;
 
             if(page_data.length > 0){
                 //build a PageData element

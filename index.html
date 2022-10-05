@@ -7,6 +7,23 @@
     <title>Document</title>
     <script src="loader.js"></script>
     <script src="list.js"></script>
+    <style>
+        html, body{
+            font-size: 16pt;
+        }
+
+        #output{
+            background-color: antiquewhite;
+            font-size: 0.75ch;
+            
+        }
+
+        #debug{
+            border: 0.1ch solid rgb(9, 14, 0); 
+        }
+
+
+    </style>
     <script>
         const g_container_id = "list-container-template";
         const g_item_id = "list-item-template"; 
@@ -63,7 +80,7 @@
     </script>
 </head>
 <body>
-    <div>
+    <div id="output">
         <pre id="debug"></pre>
     </div>
     <div>
