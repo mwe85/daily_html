@@ -37,21 +37,21 @@ class FetchRequestor{
 class LegacyRequestor{
 
     request(url){
-        alert("legacy")
+        false && alert("legacy")
         let req = new XMLHttpRequest();
         
         return new Promise((ok, error)=>{
             req.onload = function(){
                 //note: onload is invoked with supplying 
                 //an object via this. 
-                alert("legacy response ok");
+                false && alert("legacy response ok");
                 const data = JSON.parse(this.responseText);
                 ok(data);
                 return data;
             };
 
             req.onerror = (err) => {
-                alert("legacy response err");
+                false && alert("legacy response err");
                 error(err)
             };
         });
@@ -74,10 +74,10 @@ class Requestor{
         //to XMLHttpRequest.
 
         //detection
-        alert("hi 3")
+        //alert("hi 3")
         if(window.fetch === void 0){
             //resolve to legacy
-            alert("legacy")
+            false && alert("legacy")
             return new LegacyRequestor();
         }else{
             debug("fetch api", true);
